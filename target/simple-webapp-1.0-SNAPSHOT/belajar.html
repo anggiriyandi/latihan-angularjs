@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <title>Belajar Angular</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    
+    <!--ng-app = menyatakan bahwa tag ini akan di proses oleh angular -->
+    <body ng-app ="belajar-controller">
+        <div ng-controller="HalloController">
+            <h1>Hallo {{nama}} </h1>
+            <h2>Daftar email</h2>
+            <ul>
+                <li ng-repeat =" e in daftarEmail">{{e}} </li>
+            </ul>
+            status : {{status}}
+            <h2>Tambah Email</h2>
+            Masukan Email : <input class="span3" type="email" required ng-model ="emailBaru">
+            <br>
+            email yang anda masukan : {{emailBaru}}
+            <br>            
+            <button class="btn btn-smallbtn-small btn-primary" type="button" ng-click ="tambahEmail()">submit</button>
+        </div>
+        <div ng-controller ="CobaController">
+            social  : <input type="text" class="input-medium search-query" placeholder="sosmed anda" ng-model="x.social">
+            <br>
+            account : <input type="text" class="input-medium search-query" placeholder="acount sosmed anda" ng-model="x.account">
+            <br>
+            <button class="btn btn-smallbtn-small btn-primary" type="button" ng-click ="tambahObject()">save</button>
+
+            <br>
+            <table class="table table-striped">
+                <tr>
+                    <th>Social Network</th>
+                    <th> Account </th>
+                    <th> Modified</th>
+                </tr>
+                <tr ng-repeat ="o in object">
+                    <td>{{o.social}}</td>
+                    <td>{{o.account}} </td>
+                    <td> <a ng-click = "edit(o)" ><i class="icon-edit"></i> edit</a> <a ng-click = "hapus(o)" >delete</a></td>
+                </tr>
+            </table>
+        </div>
+    </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <script src="belajarService.js"></script>
+    <script src="belajar.js"></script>
+</html>
